@@ -21,7 +21,12 @@ public:
     virtual Vector Solve() = 0;
 
     // Accessor methods
-    int Size() const { return mSize; }
-    Matrix* GetMatrix() const { return mpA; }
-    Vector* GetVector() const { return mpb; }
+    int Size() const {}
+    Matrix* GetMatrix() const {}
+    Vector* GetVector() const {}
+
+private:
+    // Disabled copy constructor and assignment operator
+    LinearSystem (const LinearSystem&);
+    LinearSystem& operator=(const LinearSystem&);
 };

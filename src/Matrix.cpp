@@ -39,6 +39,7 @@ Matrix::~Matrix() {
 // Accessors
 int Matrix::numRows() const { return mNumRows; }
 int Matrix::numCols() const { return mNumCols; }
+
 // Overloaded round bracket operator for one-based indexing
 double& Matrix::operator()(int i, int j) {
     if (i >= 1 && i <= mNumRows && j >= 1 && j <= mNumCols){
@@ -47,7 +48,6 @@ double& Matrix::operator()(int i, int j) {
         cout << "Index out of bounds: (" << i << ", " << j << ")" << endl;
         return mData[0][0];
     }
-    return mData[i - 1][j - 1];
 }
 
 // Overloaded assignment operator
