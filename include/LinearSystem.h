@@ -24,7 +24,6 @@ public:
     int Size() const {}
     Matrix* GetMatrix() const {}
     Vector* GetVector() const {}
-    void SwapRows(Matrix& A, Ve) {}
 
 private:
     // Disabled copy constructor and assignment operator
