@@ -43,7 +43,9 @@ Vector LinearSystem::Solve() {
         for (int k = i + 1; k <= n; ++k) {
             if (augmented(k, i) > augmented(i, i)) {
                 for (int j = 1; j <= n + 1; ++j) {
-                    swap(augmented(i, j), augmented(k, j));
+                    double temp = augmented(i, j);
+                    augmented(i, j) = augmented(k, j);
+                    augmented(k, j) = temp;
                 }
             }
         }
