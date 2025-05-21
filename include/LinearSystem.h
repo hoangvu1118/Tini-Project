@@ -2,6 +2,7 @@
 
 #include "Matrix.h"
 #include "Vector.h"
+using namespace std;
 
 class LinearSystem {
 protected:
