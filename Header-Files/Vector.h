@@ -1,4 +1,4 @@
-#pragma once
+# pragma once
 
 #include <iostream>
 using namespace std;
@@ -30,6 +30,9 @@ public:
     Vector operator-(const Vector& other) const {}
 
     Vector operator*(double scalar) const {}
+
+    // Dot Product
+    double dot(const Vector& other) const {}
     
     // Square Bracket Operator Overload for index checking
     double& operator[](int index) {}
@@ -37,7 +40,6 @@ public:
     // Round Bracket Operator Overload for one-based indexing
     double& operator()(int index) {}
     
-
     // Get size of the vector
     int size() const {}
 };
