@@ -1,12 +1,13 @@
 How to run test 
 ### Matrix
 ```
-g++ -o matrix_program testMatrix.cpp Matrix.cpp -std=c++11 -I./Header-Files
+compile.bat matrix
 ```
+This will compile tests/testMatrix.cpp into compile/test_matrix.exe
 
 ### Vector
 ```
-g++ -o test_vector tests/VectorTest.cpp src/Vector.cpp -I./Header-Files
+compile.bat vector
 ```
 
 ### Linear System
