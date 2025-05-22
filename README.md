@@ -12,9 +12,34 @@ compile.bat vector
 
 ### Linear System
 ```
-g++ -o test_linear_system tests/LinearSystemTest.cpp src/LinearSystem.cpp src/Matrix.cpp src/Vector.cpp -I./Header-Files
+compile.bat linear
 ```
-### Main
+This will compile tests/testLinear.cpp into compile/test_linear.exe
+
+### compile.bat illposed
 ```
-g++ -o compile/main src/main.cpp src/Matrix.cpp src/Vector.cpp src/LinearSystem.cpp -I./Header-Files
+compile.bat illposed
 ```
+
+To run each test - Run the executable individually for each class
+```
+compile\test_vector.exe
+compile\test_matrix.exe
+compile\test_linear.exe
+compile\test_illposed.exe
+```
+
+## To create new cpp files
+```
+else if "%1"=="mynewfile" (
+    g++ -o compile/mynewfile src/mynewfile.cpp src/Matrix.cpp src/Vector.cpp -I./Header-Files
+    echo Compiled mynewfile
+)
+```
+Put this in the `compile.bat`, remember to change the name of the files 
+Then run 
+```
+compile.bat mynewfile
+```
+
+
