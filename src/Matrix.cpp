@@ -220,7 +220,7 @@ Matrix Matrix::inverse() const {
 
     // Check if matrix is invertible
     if (fabs(determinant()) < threshold) {
-        throw std::runtime_error("Matrix is not invertible."); // Throw an exception instead of asserting
+        throw std::runtime_error("Matrix is not invertible.");
     }
 
     Matrix augmented(n, 2*n);
@@ -251,11 +251,8 @@ Matrix Matrix::inverse() const {
         }
 
         double pivot = augmented(i+1,i+1);
-        // If pivot is too small, it means the matrix is singular or near-singular,
-        // which should ideally be caught by the determinant check already.
-        // However, this check can act as a secondary safeguard.
         if (fabs(pivot) < threshold) {
-             throw std::runtime_error("Encountered zero pivot during inverse calculation. Matrix is likely singular.");
+             throw std::runtime_error("Zero pivot during inverse calculation. Matrix is singular.");
         }
 
         for(int j = 0; j < 2*n; j++) {
