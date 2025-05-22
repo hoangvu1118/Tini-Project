@@ -122,7 +122,7 @@ Matrix Matrix::operator-(const Matrix& other) const{
     }
     return newMatrix;
 }
-
+// Matrix * Vector not Vector*Matrix
 Vector Matrix::operator*(Vector& v) const {
     if (mNumCols != v.size()) {
         throw std::invalid_argument("Matrix-Vector multiplication: dimensions don't match");
