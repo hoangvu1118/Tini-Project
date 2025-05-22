@@ -2,7 +2,7 @@
 #include <cassert>
 #include <iostream>
 #include <cmath>
-#include <stdexcept> // For std::runtime_error
+#include <stdexcept> 
 
 const double threshold = 1e-9;
 
@@ -293,7 +293,7 @@ Matrix Matrix::pseudoInverse() const {
     if(mNumRows < mNumCols) {
         // A⁺ = Aᵀ(AAᵀ)⁻¹
         Matrix AAT = (*this) * transpose;
-        // The inverse() call here can throw, so catch it if needed, or let it propagate.
+        // The inverse() call here can throw, so catch it if needed, or let it propagate
         Matrix AATInv = AAT.inverse();
         return transpose * AATInv;
     } else {

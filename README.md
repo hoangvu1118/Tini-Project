@@ -13,3 +13,7 @@ g++ -o test_vector tests/VectorTest.cpp src/Vector.cpp -I./Header-Files
 ```
 g++ -o test_linear_system tests/LinearSystemTest.cpp src/LinearSystem.cpp src/Matrix.cpp src/Vector.cpp -I./Header-Files
 ```
+### Main
+```
+g++ -o compile/main src/main.cpp src/Matrix.cpp src/Vector.cpp src/LinearSystem.cpp -I./Header-Files
+```
