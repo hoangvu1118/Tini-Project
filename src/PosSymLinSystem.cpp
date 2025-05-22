@@ -50,15 +50,9 @@ Vector PosSymLinSystem::Solve() {
     for (int iter = 0; iter < maxIterations; ++iter) {
         // Matrix-vector product A*p
         Vector Ap(n);
-        // Manually perform the matrix-vector multiplication
-        for (int i = 1; i <= n; ++i) {
-            double sum = 0.0;
-            for (int j = 1; j <= n; ++j) {
-                sum += (*mpA)(i, j) * p(j);
-            }
-            Ap(i) = sum;
-        }
-        
+        Ap = (*mpA) * p;
+
+        // Compute alpha
         double alpha = rsold / p.dot(Ap);
         
         x = x + p * alpha;

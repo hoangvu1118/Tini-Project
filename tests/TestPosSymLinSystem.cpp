@@ -1,10 +1,10 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
-#include "../src/Matrix.h"
-#include "../src/Vector.h"
-#include "../src/LinearSystem.h"
-#include "../src/PosSymLinSystem.h"
+#include <LinearSystem.h>
+#include <PosSymLinSystem.h>
+#include <Matrix.h>
+#include <Vector.h>
 using namespace std;
 
 // Helper function to print vector
