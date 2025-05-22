@@ -78,7 +78,7 @@ Vector Vector::operator*(double scalar) const {
 
 // Dot Product
 double Vector::dot(const Vector& other) const {
-    if (mSize == other.mSize){
+    if (mSize != other.mSize) {
         cout << "Error: Vector sizes don't match for dot product" << endl;
         return 0.0;
     }

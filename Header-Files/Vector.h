@@ -10,36 +10,35 @@ private:
 
 public:
     // Constructor
-    Vector(int size) : mSize(size) {}
+    Vector(int size);
 
     // Copy Constructor
-    Vector(const Vector& other) : mSize(other.mSize) {}
+    Vector(const Vector& other);
 
     // Destructor
-    ~Vector() {}
+    ~Vector();
 
     // Assignment Operator
-    Vector& operator=(const Vector& other) {}
+    Vector& operator=(const Vector& other);
 
     // Unary Operator Overload
-    Vector operator-() const {}
+    Vector operator-() const ;
 
     // Binary Operator Overloads
-    Vector operator+(const Vector& other) const {}
+    Vector operator+(const Vector& other) const;
 
-    Vector operator-(const Vector& other) const {}
+    Vector operator-(const Vector& other) const;
 
-    Vector operator*(double scalar) const {}
+    Vector operator*(double scalar) const;
 
     // Dot Product
-    double dot(const Vector& other) const {}
+    double dot(const Vector& other) const;
     
     // Square Bracket Operator Overload for index checking
-    double& operator[](int index) {}
-
+    double& operator[](int index);
     // Round Bracket Operator Overload for one-based indexing
-    double& operator()(int index) {}
+    double& operator()(int index);
     
     // Get size of the vector
-    int size() const {}
+    int size() const;
 };

@@ -37,17 +37,37 @@ Vector LinearSystem::Solve() {
         augmented(i, n + 1) = (*mpb)(i);
     }
 
-    // Gaussian elimination
+    // Print the initial augmented matrix for debugging
+    cout << "Initial augmented matrix:" << endl;
     for (int i = 1; i <= n; ++i) {
-        // Pivoting
+        for (int j = 1; j <= n+1; ++j) {
+            cout << augmented(i, j) << " ";
+        }
+        cout << endl;
+    }
+
+    // Forward elimination
+    for (int i = 1; i <= n; ++i) {
+        // Find pivot with largest absolute value
+        int maxRow = i;
         for (int k = i + 1; k <= n; ++k) {
-            if (augmented(k, i) > augmented(i, i)) {
-                for (int j = 1; j <= n + 1; ++j) {
-                    double temp = augmented(i, j);
-                    augmented(i, j) = augmented(k, j);
-                    augmented(k, j) = temp;
-                }
+            if (fabs(augmented(k, i)) > fabs(augmented(maxRow, i))) {
+                maxRow = k;
             }
+        }
+        
+        // Swap rows if needed
+        if (maxRow != i) {
+            for (int j = 1; j <= n + 1; ++j) {
+                double temp = augmented(i, j);
+                augmented(i, j) = augmented(maxRow, j);
+                augmented(maxRow, j) = temp;
+            }
+        }
+        
+        // Check for singular matrix
+        if (fabs(augmented(i, i)) < 1e-10) {
+            throw runtime_error("Matrix is singular or nearly singular");
         }
 
         // Elimination
@@ -59,15 +79,36 @@ Vector LinearSystem::Solve() {
         }
     }
 
+    // Print the matrix after elimination for debugging
+    cout << "Matrix after elimination:" << endl;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= n+1; ++j) {
+            cout << augmented(i, j) << " ";
+        }
+        cout << endl;
+    }
+
     // Back substitution
     Vector solution(n);
     for (int i = n; i >= 1; --i) {
-        double sum = 0;
+        double sum = 0.0;
         for (int j = i + 1; j <= n; ++j) {
             sum += augmented(i, j) * solution(j);
         }
         solution(i) = (augmented(i, n + 1) - sum) / augmented(i, i);
+        
+        // Print each step of back substitution for debugging
+        cout << "Set solution(" << i << ") = (" << augmented(i, n + 1) 
+             << " - " << sum << ") / " << augmented(i, i) 
+             << " = " << solution(i) << endl;
     }
+
+    // Print final solution for debugging
+    cout << "Final solution: ";
+    for (int i = 1; i <= n; ++i) {
+        cout << solution(i) << " ";
+    }
+    cout << endl;
 
     return solution;
 }

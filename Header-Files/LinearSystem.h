@@ -18,13 +18,13 @@ public:
     virtual ~LinearSystem();
 
     // Solve method to be overridden in derived classes
-    virtual Vector Solve() = 0;
+    virtual Vector Solve();
 
     // Accessor methods
-    int Size() const {}
-    Matrix* GetMatrix() const {}
-    Vector* GetVector() const {}
-
+    int Size() const;
+    Matrix* GetMatrix() const;
+    Vector* GetVector() const;
+    
 private:
     // Disabled copy constructor and assignment operator
     LinearSystem (const LinearSystem&);
