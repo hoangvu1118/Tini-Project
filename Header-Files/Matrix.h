@@ -1,6 +1,8 @@
 # pragma once
 #include <iostream>
 
+class Vector;
+
 class Matrix {
 private:
     int mNumRows;
@@ -35,10 +37,11 @@ public:
 
     Matrix operator+(const Matrix& other) const;
     Matrix operator-(const Matrix& other) const;
+    
     Matrix operator*(const Matrix& other) const;
-
     Matrix operator*(double scalar) const;
 
+    Vector operator*(Vector& v) const;
 
     double determinant() const;
 

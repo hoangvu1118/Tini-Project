@@ -1,4 +1,5 @@
 #include "Matrix.h"
+#include "Vector.h"
 #include <cassert>
 #include <iostream>
 #include <cmath>
@@ -120,6 +121,24 @@ Matrix Matrix::operator-(const Matrix& other) const{
         }
     }
     return newMatrix;
+}
+// Matrix * Vector not Vector*Matrix
+Vector Matrix::operator*(Vector& v) const {
+    if (mNumCols != v.size()) {
+        throw std::invalid_argument("Matrix-Vector multiplication: dimensions don't match");
+    }
+    
+    Vector result(mNumRows);
+    
+    for (int i = 1; i <= mNumRows; i++) {
+        double sum = 0.0;
+        for (int j = 1; j <= mNumCols; j++) {
+            sum += (*this)(i, j) * v(j);
+        }
+        result(i) = sum;
+    }
+    
+    return result;
 }
 
 Matrix Matrix::operator*(const Matrix& other) const {
