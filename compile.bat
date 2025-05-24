@@ -24,6 +24,9 @@ if "%1"=="main" (
 ) else if "%1"=="matrix-vector" (
     g++ -o compile/test_matrix_vector tests/testMaVec.cpp src/Matrix.cpp src/Vector.cpp -I./Header-Files
     echo Compiled matrix-vector multiplication test
+) else if "%1"=="main" (
+    g++ -o compile/main src/Main.cpp src/PosSymLinSystem.cpp src/LinearSystem.cpp src/Matrix.cpp src/Vector.cpp -I./Header-Files
+    echo Compiled matrix-vector ill-posed multiplication test
 ) else (
     echo Usage: compile.bat [main^|vector^|matrix^|linear^|illposed^|matrix-vector]
 )

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <LinearSystem.h>
-#include <PosSymLinSystem.h> // For Tikhonov, as A^T A is symmetric
+#include <PosSymLinSystem.h>
 #include <Vector.h>
 #include <Matrix.h>
 #include <cmath>
@@ -164,6 +164,3 @@ int main() {
 
     return 0;
 }
-
-
-
