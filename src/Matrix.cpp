@@ -280,27 +280,30 @@ Matrix Matrix::inverse() const {
     return inverse;
 }
 
-Matrix Matrix::pseudoInverse() const {
-
-    Matrix transpose(mNumCols, mNumRows);
-    // Create transpose
+Matrix Matrix::transpose() const {
+    Matrix transposed(mNumCols, mNumRows);
     for(int i = 0; i < mNumRows; i++) {
         for(int j = 0; j < mNumCols; j++) {
-            transpose(j+1,i+1) = mData[i][j];
+            transposed(j+1,i+1) = mData[i][j];
         }
     }
+    return transposed;
+}
 
+Matrix Matrix::pseudoInverse() const {
     if(mNumRows < mNumCols) {
-        // A⁺ = Aᵀ(AAᵀ)⁻¹
-        Matrix AAT = (*this) * transpose;
-        // The inverse() call here can throw, so catch it if needed, or let it propagate
+        // A⁺ = Aᵀ(A Aᵀ)⁻¹
+        Matrix AT = transpose();
+        Matrix AAT = (*this) * AT;
+        // The inverse() call here can throw, so catch it if needed, or let it propagate.
         Matrix AATInv = AAT.inverse();
-        return transpose * AATInv;
+        return AT * AATInv;
     } else {
-        // A⁺ = (AᵀA)⁻¹Aᵀ
-        Matrix ATA = transpose * (*this);
+        // A⁺ = (Aᵀ A)⁻¹ Aᵀ
+        Matrix AT = transpose();
+        Matrix ATA = AT * (*this);
         // The inverse() call here can throw, so catch it if needed, or let it propagate.
         Matrix ATAInv = ATA.inverse();
-        return ATAInv * transpose;
+        return ATAInv * AT;
     }
 }

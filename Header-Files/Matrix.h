@@ -45,4 +45,6 @@ public:
     Matrix inverse() const;
 
     Matrix pseudoInverse() const;
+
+    Matrix transpose() const;
 };
