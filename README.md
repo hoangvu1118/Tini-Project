@@ -1,22 +1,28 @@
-How to run test 
-### Matrix
+## C++ Linear Algebra and CPU Regression Project 🚀
+### How to Compile ⚙️
+The compile.bat script is used to compile the different parts of the project. Compiled executables are placed in the compile/ directory.
+#### General Usage:
+```
+compile.bat <component_name>
+```
+#### Matrix
 ```
 compile.bat matrix
 ```
 This will compile tests/testMatrix.cpp into compile/test_matrix.exe
 
-### Vector
+#### Vector
 ```
 compile.bat vector
 ```
 
-### Linear System
+#### Linear System
 ```
 compile.bat linear
 ```
 This will compile tests/testLinear.cpp into compile/test_linear.exe
 
-### compile.bat illposed
+#### compile.bat illposed
 ```
 compile.bat illposed
 ```
