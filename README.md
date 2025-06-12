@@ -66,3 +66,26 @@ Then run:
 ```Bash
 compile.bat mynewfile
 ```
+
+### Linux/Unix
+```bash
+./compile.sh [target]
+```
+
+### Available targets:
+- `main` - Main program
+- `vector` - Vector tests
+- `matrix` - Matrix tests  
+- `linear` - Linear system tests
+- `illposed` - Ill-posed system tests
+- `pos-sym-lin-system` - Positive symmetric tests
+- `matrix-vector` - Matrix-vector multiplication tests
+- `regression` - CPU regression analysis
+
+### Examples:
+```bash
+# Linux
+./compile.sh illposed
+./compile.sh main
+
+```
